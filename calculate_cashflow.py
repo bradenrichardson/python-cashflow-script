@@ -69,6 +69,7 @@ def main():
             start = event['start'].get('dateTime', event['start'].get('date'))
             date_start = datetime.datetime.strptime(start, '%Y-%m-%d')
             if date_start < dtdate:
+                print(event['summary'])
                 if 'Income' in event['summary']:
                     value = re.findall('[0-9]+', event['summary'])
                     income = income + int(value[0])
